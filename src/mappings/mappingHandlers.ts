@@ -1,13 +1,5 @@
-import { AlgorandBlock, AlgorandTransaction } from "@subql/types-algorand";
-import { Block, Transaction } from "../types";
-
-export async function handleBlock(block: AlgorandBlock): Promise<void> {
-  const blockEntity: Block = Block.create({
-    id: block.round.toString(),
-    height: block.round,
-  });
-  await blockEntity.save();
-}
+import { AlgorandTransaction } from "@subql/types-algorand";
+import { Transaction } from "../types";
 
 export async function handleTransaction(
   tx: AlgorandTransaction
